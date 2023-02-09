@@ -28,6 +28,8 @@ function getPlayerChoice() {
 
 function playRound(playerSelection, computerSelection) {
   let result;
+  computerSelection = getComputerChoice();
+  playerSelection = getPlayerChoice();
   
   if (playerSelection === "ROCK" && computerSelection === "PAPER") {
     result = 0;
@@ -47,16 +49,23 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection === "SCISSOR" && computerSelection === "ROCK") {
     result = 0;
     console.log("You Lose! Rock beats Scissor");
-  //} else {
-    //result = "Tie"
+  } else {
+    console.log("Tie");
   }
 
   return result;
 }
 
-const computerSelection = getComputerChoice();
-const playerSelection = getPlayerChoice();
-console.log(computerSelection);
-playRound(playerSelection, computerSelection);
+function game() {
 
-console.log(playRound(playerSelection, computerSelection));
+  for (let i = 0; i < 5; i++) {
+    playRound(playerSelection, computerSelection);
+  }
+}
+
+let computerSelection = getComputerChoice();
+let playerSelection = getPlayerChoice();
+//playRound(playerSelection, computerSelection);
+game();
+console.log(game());
+//console.log(playRound(playerSelection, computerSelection));
